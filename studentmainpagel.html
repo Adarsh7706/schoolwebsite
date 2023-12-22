@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSSS Student Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 6px;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #signupForm {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+   <form id="loginForm">
+        <h2><big>BSS Sansthan</big> <br> Login Page</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" onclick="login()">Login</button>
+        <br>
+        <button type="button" onclick="toggleForms()">Switch to Signup</button>
+    </form>
+
+    <form id="signupForm">
+        <h2> <big> BSS Sansthan </big> <br>Sign Up</h2>
+        <label for="newUsername">New Username:</label>
+        <input type="text" id="newUsername" name="newUsername" required>
+
+        <label for="schoolid">School Id:</label>
+        <input type="text" id="schoolid" name="schoolid" required>
+
+        <label for="newEmail">Email:</label>
+        <input type="email" id="newEmail" name="newEmail" required>
+
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword" required>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+        <button type="button" onclick="signup()">Sign Up</button>
+        <br>
+        <button type="button" onclick="toggleForms()">Switch to Login</button>
+    </form>
+
+    <script>
+        function toggleForms() {
+            var loginForm = document.getElementById('loginForm');
+            var signupForm = document.getElementById('signupForm');
+
+            if (loginForm.style.display === 'block') {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            } else {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            }
+        }
+
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Perform validation and login logic here
+            alert('Login clicked\nUsername: ' + username + '\nPassword: ' + password);
+        }
+
+        function signup() {
+            var newUsername = document.getElementById('newUsername').value;
+            var schoolid = document.getElementById('schoolid').value;
+            var newEmail = document.getElementById('newEmail').value;
+            var newPassword = document.getElementById('newPassword').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Perform validation
+            if (newPassword !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            if (!newUsername || !schoolid || !newEmail || !newPassword || !confirmPassword) {
+                alert('Some information is missing. Please check again.');
+                return;
+            }
+
+            // Perform signup logic (in a real application, this would involve server-side processing)
+            alert('Sign Up successful!\nUsername: ' + newUsername + '\nSchool Id: ' + schoolid + '\nEmail: ' + newEmail);
+        }
+    </script>
+
+</body>
+</html>
