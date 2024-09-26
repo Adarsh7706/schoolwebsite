@@ -48,6 +48,7 @@ footer {
   float: right;
   border-radius: 100%;
   margin-left: 90px;
+  filter: grayscale(100%);
 }
 .h-text {
   font-size: 50px;
